@@ -1,0 +1,112 @@
+
+
+/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+
+(function ($) {
+    "use strict";
+    var mainApp = {
+
+        main_fun: function () {
+            /*====================================
+             CUSTOM LINKS SCROLLING FUNCTION 
+            ======================================*/
+
+            $('header a[href*=#]').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+               && location.hostname == this.hostname) {
+                    var $target = $(this.hash);
+                    $target = $target.length && $target
+                    || $('[name=' + this.hash.slice(1) + ']');
+                    if ($target.length) {
+                        var targetOffset = $target.offset().top;
+                        $('html,body')
+                        .animate({ scrollTop: targetOffset }, 800); //set scroll speed here
+                        return false;
+                    }
+                }
+            });
+          
+       
+            /*====================================
+               WRITE YOUR SCRIPTS BELOW 
+           ======================================*/
+
+
+        },
+
+        initialization: function () {
+            mainApp.main_fun();
+
+        }
+
+    }
+    // Initializing ///
+
+    $(document).ready(function () {
+        mainApp.main_fun();
+    });
+
+}(jQuery));
+
+<script type="text/javascript"><!--
+/* 
+   Full Size Image In Popup
+   Version 1.0
+   November 22, 2011
+
+   Will Bontrager Software, LLC
+   http://www.willmaster.com/
+   Copyright 2011 Will Bontrager Software, LLC
+
+   This software is provided "AS IS," without 
+   any warranty of any kind, without even any 
+   implied warranty such as merchantability 
+   or fitness for a particular purpose.
+   Will Bontrager Software, LLC grants 
+   you a royalty free license to use or 
+   modify this software provided this 
+   notice appears on all copies. 
+*/
+var PopupImageContainer = new Image();
+var PopupImageCaption = new String();
+var PopupImageSRC = new String();
+
+function PopImage(imagesrc,caption) {
+if( length.imagesrc < 1 ) { return; }
+var loadDelay = PopupImageSRC.length ? 1 : 750;
+PopupImageSRC = imagesrc;
+PopupImageCaption = caption ? caption : 'Image';
+PopupImageContainer.src = PopupImageSRC;
+setTimeout("PopupImageDisplay()",loadDelay);
+}
+
+function PopupImageDisplay() {
+var iw = parseInt(PopupImageContainer.width);
+var ih = parseInt(PopupImageContainer.height);
+var ww = iw + 50;
+var hh = ih + 100;
+var properties = 'height=' + hh + ',width=' + ww + ',resizable=yes,location=no';
+var picture = window.open('','',properties);
+picture.document.writeln('<html><head><title>' + PopupImageCaption + '</title>');
+picture.document.writeln('<script language="JavaScript"> function CloseMe() { self.close(); } <'+'/script>');
+picture.document.write('<'+'/head><body onBlur="CloseMe()"><center>');
+picture.document.write('<img src="' + PopupImageSRC + '" width="' + iw + '" height="' + ih + '" border="0">');
+picture.document.write('<p>' + PopupImageCaption + '<'+'/p>');
+picture.document.write('<input type="button" onClick="window.close()" value="Close Window">');
+picture.document.writeln('<'+'/center><'+'/body><'+'/html>');
+}
+//--></script>
+
+
+
+
